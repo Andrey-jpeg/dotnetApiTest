@@ -1,10 +1,13 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
+
 namespace restApi.Models
 {
-    public class APIContext
+    public class APIContext : DbContext
     {
-        public APIContext()
+        public APIContext(DbContextOptions<APIContext> options) : base(options) 
         {
         }
+        public DbSet<User> Users { get; set; }
     }
 }
